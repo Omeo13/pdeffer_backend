@@ -1,0 +1,73 @@
+1. Structure your frontend for scalability
+Even with plain HTML/CSS (no big frameworks yet), organize your files clearly:
+
+Separate folders for styles, scripts, and HTML templates/pages.
+
+Use reusable components (e.g., header, footer) included via server-side includes or JS.
+
+Plan your page flow: login, registration, main dashboard, single processing, batch processing, payment, profile.
+
+2. Design UI with your user journey in mind
+Authentication pages (login/signup) need form validation & error feedback.
+
+After login, show a dashboard with clear access to:
+
+Single file processing (free)
+
+Batch processing (paid, with clear call-to-action for upgrade)
+
+For batch processing:
+
+Allow users to upload multiple files or zipped folders.
+
+Show progress/status of batch jobs.
+
+Include profile/account page to manage subscription/payment info (even if just a placeholder).
+
+3. Plan for API integration early
+Even if you don’t write JS now, structure your UI elements so it’s easy to later add API calls with fetch() or a library like Axios.
+
+Use semantic HTML with IDs/classes that make selecting elements for JS easy.
+
+Example: <form id="login-form">, <div id="batch-status">.
+
+4. Prepare for authentication token handling
+After login, you’ll get a JWT or token from backend.
+
+Plan to store this token securely (e.g., in localStorage or cookies with httpOnly flag when you add JS).
+
+All protected API calls will need this token in headers.
+
+Even with minimal JS, keep placeholders or comments where this will plug in.
+
+5. UI/UX for paid features
+Clearly differentiate free vs. paid features.
+
+Show upgrade prompts or disable batch UI elements for free users.
+
+Show error messages or modal dialogs when unauthorized users try batch processing.
+
+Later, add payment workflow (Stripe Checkout or custom UI).
+
+6. Responsive and accessible design
+Make sure your UI works on different screen sizes.
+
+Use basic accessibility principles (labels on inputs, focus states).
+
+This makes it easier to improve and maintain later.
+
+7. Error and success feedback
+Every user action should have clear feedback:
+
+Loading states (e.g., "Processing... please wait")
+
+Success messages ("File processed successfully!")
+
+Error messages ("Batch processing requires subscription.")
+
+8. Keep security in mind
+Never expose sensitive info in frontend code.
+
+Validate all user inputs on backend as well.
+
+Plan to use HTTPS when deployed.
